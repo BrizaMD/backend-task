@@ -29,7 +29,7 @@ namespace TruckOrderOptimizer.Helpers
             Log.Information("Unassigned Jobs:");
             foreach (var unassignedJob in unassignedJobs)
             {
-                Log.Information($"Job {unassignedJob.Id} ({unassignedJob.Type})");
+                Log.Information("Job {UnassignedJobId} ({UnassignedJobType})", unassignedJob.Id, unassignedJob.Type);
             }
         }
 
@@ -38,7 +38,7 @@ namespace TruckOrderOptimizer.Helpers
             Log.Information("Unassigned Vehicles:");
             foreach (var unassignedVehicle in unassignedVehicles)
             {
-                Log.Information($"Vehicle {unassignedVehicle.Id} ({string.Join(" ", unassignedVehicle.CompatibleJobs)})");
+                Log.Information("Vehicle {UnassignedVehicleId} ({Join})", unassignedVehicle.Id, string.Join(" ", unassignedVehicle.CompatibleJobs));
             }
         }
 
