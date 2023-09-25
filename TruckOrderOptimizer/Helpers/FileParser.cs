@@ -19,6 +19,7 @@ namespace TruckOrderOptimizer.Helpers
                     string[] tokens = reader.ReadLine().Split(' ');
                     int vehicleId = int.Parse(tokens[0]);
                     var compatibleJobs = new List<string>(tokens).GetRange(1, tokens.Length - 1);
+                    var compatibleJobs = new HashSet<string>(tokens.Skip(1));
                     vehicles.Add(new Vehicle { Id = vehicleId, CompatibleJobs = compatibleJobs });
                 }
 
