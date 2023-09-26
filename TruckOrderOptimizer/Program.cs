@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using TruckOrderOptimizer.Helpers;
 using TruckOrderOptimizer.Services;
@@ -17,27 +16,12 @@ namespace TruckOrderOptimizer
             {
                 var filePath = ResolveFilePath("mediordev.txt");
 
-                var stopwatch = Stopwatch.StartNew();
-
                 var (vehicles, jobs) = FileParser.ParseTrucksAndJobs(filePath);
-                var (assignments, unassignedJobs, unassignedVehicles) = JobAssignmentService.AssignJobs(vehicles, jobs);
+                var assignments = JobAssignmentService.AssignJobs(vehicles, jobs);
 
-                stopwatch.Stop();
-
-                Log.Information("Elapsed time: {ElapsedMilliseconds} ms", stopwatch.ElapsedMilliseconds);
-
-                AssignmentReporter.PrintAssignments(assignments, vehicles, jobs);
-                AssignmentReporter.PrintUnassignedJobs(unassignedJobs);
-                AssignmentReporter.PrintUnassignedVehicles(unassignedVehicles);
-
-                string timeStamp = DateTime.Now.ToString("HH-mm-ss-fff");
-                string outputPath = Path.Combine(Directory.GetCurrentDirectory(), $"output {timeStamp}.txt");
-
-                using (StreamWriter writer = new StreamWriter(outputPath))
+                foreach (var assignment in assignments)
                 {
-                    AssignmentReporter.WriteAssignments(writer, assignments, vehicles, jobs);
-                    AssignmentReporter.WriteUnassignedJobs(writer, unassignedJobs);
-                    AssignmentReporter.WriteUnassignedVehicles(writer, unassignedVehicles);
+                    Console.WriteLine($"{assignment.Value} {assignment.Key}");
                 }
             }
             catch (FileNotFoundException ex)
@@ -68,6 +52,7 @@ namespace TruckOrderOptimizer
             {
                 throw new FileNotFoundException($"The specified file {fileName} does not exist or is empty");
             }
+
             return path;
         }
     }

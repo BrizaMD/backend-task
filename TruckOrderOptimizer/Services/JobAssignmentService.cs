@@ -6,7 +6,7 @@ namespace TruckOrderOptimizer.Services
 {
     public static class JobAssignmentService
     {
-        public static (Dictionary<int, int> Assignments, List<Job> UnassignedJobs, List<Vehicle> UnassignedVehicles) AssignJobs(List<Vehicle> vehicles, List<Job> jobs)
+        public static Dictionary<int, int> AssignJobs(List<Vehicle> vehicles, List<Job> jobs)
         {
             var assignments = new Dictionary<int, int>();
 
@@ -24,10 +24,7 @@ namespace TruckOrderOptimizer.Services
                 }
             }
 
-            var unassignedJobs = jobs.Where(j => !j.IsAssigned).ToList();
-            var unassignedVehicles = vehicles.Where(v => !v.IsAssigned).ToList();
-
-            return (assignments, unassignedJobs, unassignedVehicles);
+            return assignments;
         }
     }
 }

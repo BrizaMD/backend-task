@@ -24,7 +24,7 @@ namespace TruckOrderOptimizer.Tests
             };
 
             // Act
-            var (assignments, unassignedJobs, unassignedVehicles) = JobAssignmentService.AssignJobs(vehicles, jobs);
+            var assignments = JobAssignmentService.AssignJobs(vehicles, jobs);
 
             // Assert
             Assert.AreEqual(2, assignments.Count);
@@ -32,8 +32,6 @@ namespace TruckOrderOptimizer.Tests
             Assert.AreEqual(1, assignments[1]);
             Assert.IsTrue(assignments.ContainsKey(2));
             Assert.AreEqual(2, assignments[2]);
-            Assert.AreEqual(0, unassignedJobs.Count);
-            Assert.AreEqual(0, unassignedVehicles.Count);
         }
 
         [TestMethod]
@@ -50,12 +48,10 @@ namespace TruckOrderOptimizer.Tests
             };
 
             // Act
-            var (assignments, unassignedJobs, unassignedVehicles) = JobAssignmentService.AssignJobs(vehicles, jobs);
+            var assignments = JobAssignmentService.AssignJobs(vehicles, jobs);
 
             // Assert
             Assert.AreEqual(0, assignments.Count);
-            Assert.AreEqual(1, unassignedJobs.Count);
-            Assert.AreEqual(1, unassignedVehicles.Count);
         }
 
         [TestMethod]
@@ -66,12 +62,10 @@ namespace TruckOrderOptimizer.Tests
             var jobs = new List<Job>();
 
             // Act
-            var (assignments, unassignedJobs, unassignedVehicles) = JobAssignmentService.AssignJobs(vehicles, jobs);
+            var assignments = JobAssignmentService.AssignJobs(vehicles, jobs);
 
             // Assert
             Assert.AreEqual(0, assignments.Count);
-            Assert.AreEqual(0, unassignedJobs.Count);
-            Assert.AreEqual(0, unassignedVehicles.Count);
         }
     }
 }
