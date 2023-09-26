@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TruckOrderOptimizer", "TruckOrderOptimizer\TruckOrderOptimizer.csproj", "{F592D6A6-13B5-4EA4-86A2-926C88F8D219}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TruckOrderOptimizer.Tests", "TruckOrderOptimizer.Tests\TruckOrderOptimizer.Tests.csproj", "{8ADA3631-87E3-4EB5-AA8F-4B595D07A53F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F592D6A6-13B5-4EA4-86A2-926C88F8D219}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F592D6A6-13B5-4EA4-86A2-926C88F8D219}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F592D6A6-13B5-4EA4-86A2-926C88F8D219}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F592D6A6-13B5-4EA4-86A2-926C88F8D219}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ADA3631-87E3-4EB5-AA8F-4B595D07A53F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ADA3631-87E3-4EB5-AA8F-4B595D07A53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ADA3631-87E3-4EB5-AA8F-4B595D07A53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ADA3631-87E3-4EB5-AA8F-4B595D07A53F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
